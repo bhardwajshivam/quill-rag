@@ -1,1 +1,1 @@
-# quill-rag
+# Quill RAG system for QnA
