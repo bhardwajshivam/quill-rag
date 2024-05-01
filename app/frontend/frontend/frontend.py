@@ -1,4 +1,4 @@
-"""Welcome to Reflex! This file outlines the steps to create a basic app."""
+"""Reflex based ui"""
 
 from rxconfig import config
 
