@@ -1,7 +1,6 @@
 ollama
 reflex
 chroma
-PyPDF2
 langchain
 chromadb
 sqlite3-binary
