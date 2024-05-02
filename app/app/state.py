@@ -1,6 +1,6 @@
 import os
 import reflex as rx
-from backend.rag_logic import Rag
+from backend import rag_logic
 
 
 class QA(rx.Base):
@@ -70,14 +70,13 @@ class State(rx.State):
         # Check if the question is empty
         if question == "":
             return
-
-        chat = Rag()
-        model = chat.rag_chat_gen #self.openai_process_question
+        
+        model = self.openai_process_question
 
         async for value in model(question):
             yield value
 
-'''
+
     async def openai_process_question(self, question: str):
         """Get the response from the API.
 
@@ -101,12 +100,18 @@ class State(rx.State):
             }
         ]
         for qa in self.chats[self.current_chat]:
-            messages.append({"role": "user", "content": qa.question})rx.divider(orientation="vertical", size="4"),
+            messages.append({"role": "user", "content": qa.question})
             messages.append({"role": "assistant", "content": qa.answer})
 
         # Remove the last mock answer.
         messages = messages[:-1]
 
+        chat = rag_logic.Rag()
+        response = chat.rag_chat_gen(question)
+
+        self.chats[self.current_chat][-1].answer = response
+
+        '''
         # Start a new session to answer the question.
         session = OpenAI().chat.completions.create(
             model=os.getenv("OPENAI_MODEL", "gpt-3.5-turbo"),
@@ -129,6 +134,5 @@ class State(rx.State):
                 self.chats = self.chats
                 yield
 
-        # Toggle the processing flag.
+        # Toggle the processing flag'''
         self.processing = False
-'''

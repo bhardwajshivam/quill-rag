@@ -38,4 +38,4 @@ class Rag():
 
 if __name__ == "__main__":
     chat = Rag()
-    print(chat.rag_chat_gen(question="What is argumentation in LLM?"))
+    print(chat.rag_chat_gen(question="is Chat-GPT is a good NLG evaluation metric.?"))
