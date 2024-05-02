@@ -1,3 +1,7 @@
 #ignoring pdf data file
 
 app/data/pdf-data
+
+#ignoring every pycache folder
+
+**/__pycache__/
