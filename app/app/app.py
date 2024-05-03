@@ -4,6 +4,7 @@ import reflex as rx
 from app.components import chat, navbar
 
 class EditorState(rx.State):
+    """ handles editor state (text content)"""
     content: str = "<p>Editor content</p>"
 
     def handle_change(self, content: str):

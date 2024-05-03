@@ -64,6 +64,7 @@ class State(rx.State):
         return list(self.chats.keys())
 
     async def process_question(self, form_data: dict[str, str]):
+        """ Prepare questions to get reponse"""
         # Get the question from the form
         question = form_data["question"]
 
@@ -96,7 +97,7 @@ class State(rx.State):
         messages = [
             {
                 "role": "system",
-                "content": "You are a friendly chatbot named Reflex. Respond in markdown.",
+                "content": "You are a friendly chatbot.",
             }
         ]
         for qa in self.chats[self.current_chat]:
