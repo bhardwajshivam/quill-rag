@@ -1,4 +1,4 @@
-"""The main Chat app."""
+"""The main Editor + Chat app."""
 
 import reflex as rx
 from app.components import chat, navbar
@@ -11,19 +11,40 @@ class EditorState(rx.State):
         """Handle the editor value change."""
         self.content = content
 
+    def on_copy(self, clipboard_data):
+        """Handles the copied content."""
+        print(self.content)
+
 
 def index() -> rx.Component:
     """The main app."""
     return rx.container(
-                rx.center(
-                    "QUILL RAG",
-                    border_width="thick",
-                    width="100%"
-                ),
                 rx.flex(
                     rx.editor(
                         set_contents=EditorState.content,
+                        set_options=rx.EditorOptions(
+                            button_list=[
+                                ["font", "fontSize", "formatBlock"],
+                                ["fontColor", "hiliteColor"],
+                                [
+                                    "bold",
+                                    "underline",
+                                    "italic",
+                                    "strike",
+                                    "subscript",
+                                    "superscript",
+                                ],
+                                ["removeFormat"],
+                                "/",
+                                ["outdent", "indent"],
+                                ["align", "horizontalRule", "list", "table"],
+                                ["link"],
+                                ["fullScreen", "showBlocks", "codeView"],
+                                ["preview", "print"],
+                            ]
+                        ),
                         on_change=EditorState.handle_change,
+                        on_copy=EditorState.on_copy,
                         width="50%",
                         height="100%"
                     ),
@@ -45,7 +66,7 @@ def index() -> rx.Component:
 # Add state and page to the app.
 app = rx.App(
     theme=rx.theme(
-        appearance="dark",
+        appearance="light",
         accent_color="violet",
     ),
 )

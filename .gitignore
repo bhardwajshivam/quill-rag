@@ -5,3 +5,7 @@ app/data/pdf-data
 #ignoring every pycache folder
 
 **/__pycache__/
+
+# ignoring .pytest_cache
+
+**/.pytest_cache/

@@ -5,7 +5,7 @@ from langchain_community.embeddings.ollama import OllamaEmbeddings
 from langchain_community.vectorstores import Chroma
 
 class Rag():
-    """ class defining the rag(retrieval augmented generation) logic """
+    """ class defining the rag(retrieval augmented generation) """
 
     def format_docs(self, docs):
         """ function for joining the retrieved documents"""
@@ -24,7 +24,7 @@ class Rag():
     def ollama_llm(self, question: str, context: str):
         """ function for generating response using ollama """
         formatted_prompt = f"""Question: {question} \n\n Context: {context}"""
-        response = ollama.chat(model = "mistral", 
+        response = ollama.chat(model = "mistral",
                                messages = [{'role': 'user', 'content': formatted_prompt}])
         return response['message']['content']
 
@@ -35,7 +35,7 @@ class Rag():
         retrieved_docs = retriever.invoke(question)
         formatted_context = self.format_docs(retrieved_docs)
         return self.ollama_llm(question, formatted_context)
-
+    
 if __name__ == "__main__":
     chat = Rag()
     print(chat.rag_chat_gen(question="is Chat-GPT is a good NLG evaluation metric?"))

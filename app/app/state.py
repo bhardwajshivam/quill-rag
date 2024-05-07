@@ -1,3 +1,5 @@
+""" Module for chat state"""
+
 import os
 import reflex as rx
 from backend import rag_logic
@@ -71,14 +73,14 @@ class State(rx.State):
         # Check if the question is empty
         if question == "":
             return
-        
-        model = self.openai_process_question
+
+        model = self.ollama_process_question
 
         async for value in model(question):
             yield value
 
 
-    async def openai_process_question(self, question: str):
+    async def ollama_process_question(self, question: str):
         """Get the response from the API.
 
         Args:
@@ -110,12 +112,12 @@ class State(rx.State):
         chat = rag_logic.Rag()
         response = chat.rag_chat_gen(question)
 
-        self.chats[self.current_chat][-1].answer = response
+        self.chats[self.current_chat][-1].answer += response
 
         '''
         # Start a new session to answer the question.
         session = OpenAI().chat.completions.create(
-            model=os.getenv("OPENAI_MODEL", "gpt-3.5-turbo"),
+            model=os.getenv("OPENAI_MODEL", "gpt-3.5-turbo"Please enter a valid query.""),
             messages=messages,
             stream=True,
         )
