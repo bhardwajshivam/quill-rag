@@ -1,6 +1,5 @@
 """ Module for chat state"""
 
-import os
 import reflex as rx
 from backend import rag_logic
 
@@ -114,28 +113,4 @@ class State(rx.State):
 
         self.chats[self.current_chat][-1].answer += response
 
-        '''
-        # Start a new session to answer the question.
-        session = OpenAI().chat.completions.create(
-            model=os.getenv("OPENAI_MODEL", "gpt-3.5-turbo"Please enter a valid query.""),
-            messages=messages,
-            stream=True,
-        )
-
-        # Stream the results, yielding after every word.
-        for item in session:
-            if hasattr(item.choices[0].delta, "content"):
-                answer_text = item.choices[0].delta.content
-                # Ensure answer_text is not None before concatenation
-                if answer_text is not None:
-                    self.chats[self.current_chat][-1].answer += answer_text
-                else:
-                    # Handle the case where answer_text is None, perhaps log it or assign a default value
-                    # For example, assigning an empty string if answer_text is None
-                    answer_text = ""
-                    self.chats[self.current_chat][-1].answer += answer_text
-                self.chats = self.chats
-                yield
-
-        # Toggle the processing flag'''
         self.processing = False
