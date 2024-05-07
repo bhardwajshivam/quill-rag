@@ -1,4 +1,4 @@
-"""The main Editor + Chat app."""
+"""The main application"""
 
 import reflex as rx
 from app.components import chat, navbar
@@ -6,6 +6,7 @@ from app.components import chat, navbar
 class EditorState(rx.State):
     """ handles editor state (text content)"""
     content: str = "<p>Editor content</p>"
+    copied_data: str = ""
 
     def handle_change(self, content: str):
         """Handle the editor value change."""
@@ -13,7 +14,8 @@ class EditorState(rx.State):
 
     def on_copy(self, clipboard_data):
         """Handles the copied content."""
-        print(self.content)
+        self.copied_data = clipboard_data
+        print(self.copied_data)
 
 
 def index() -> rx.Component:
