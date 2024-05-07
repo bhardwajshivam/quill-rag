@@ -2,7 +2,6 @@
 
 from app.backend.rag_logic import Rag
 
-
 def test_rag_chat_gen_default() -> None:
     """ Function for testing the rag_chat_gen()"""
     test_fn = Rag()
