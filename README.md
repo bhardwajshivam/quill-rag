@@ -1,4 +1,4 @@
-# Quill RAG system for QnA
+# Quill RAG : An editor with RAG based chat functionality.
 
 ## Abstract
 This project introduces the Quill RAG system, an innovative editor application that allows users to write and ask questions simultaneously. The frontend of the application is built using Reflex, a Python wrapper for React. The backend incorporates RAG (Retrieval-Augmented Generation) technology, enhancing the user experience by providing intelligent responses. The vector database, created using Chroma, contains references from the paper "Exploring the Potential of Large Language Models in Computational Argumentation."
