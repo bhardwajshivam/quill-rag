@@ -4,12 +4,14 @@ import reflex as rx
 from app.components import chat, navbar
 from app.editor_state import EditorState
 
+
 def index() -> rx.Component:
     """The main app."""
     return rx.container(
                 rx.section(
                         rx.heading("QUILL RAG",weight='medium',size='9'),
-                        rx.text(" ~ Your own editor copilot", weight='light', size='6'),
+                        rx.text("Exploring the Potential of Large Language Models in Computational Argumentation",
+                                weight='light', size='2'),
                         padding_left="12px",
                         padding_right="12px",
                         background_color="#4e2ba6",
