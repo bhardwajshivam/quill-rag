@@ -4,7 +4,7 @@ import reflex as rx
 
 class EditorState(rx.State):
     """ handles editor state (text content)"""
-    content: str = "<p>Editor content: is Chat-GPT is a good NLG evaluation metric?</p>"
+    content: str = "<p>Editor content</p>"
     copied_data: str = ""
 
     def handle_change(self, content: str):
