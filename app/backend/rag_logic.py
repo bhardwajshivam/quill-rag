@@ -29,13 +29,17 @@ class Rag():
         return response['message']['content']
 
 
-    def rag_chat_gen(self, question: str):
+    def rag_chat_gen(self, question: str, editor_context: str):
         """ function for chat generation using rag """
         retriever = self.load_vector_database()
-        retrieved_docs = retriever.invoke(question)
+        retrieved_docs = retriever.invoke(question+editor_context)
         formatted_context = self.format_docs(retrieved_docs)
         return self.ollama_llm(question, formatted_context)
-    
+
+
 if __name__ == "__main__":
     chat = Rag()
-    print(chat.rag_chat_gen(question="is Chat-GPT is a good NLG evaluation metric?"))
+    #print(chat.rag_chat_gen(question="is Chat-GPT is a good NLG evaluation metric?"))
+
+
+# End-of-file (EOF)

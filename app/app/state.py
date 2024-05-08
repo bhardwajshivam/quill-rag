@@ -2,7 +2,7 @@
 
 import reflex as rx
 from backend import rag_logic
-
+from app.editor_state import EditorState
 
 class QA(rx.Base):
     """A question and answer pair."""
@@ -109,7 +109,7 @@ class State(rx.State):
         messages = messages[:-1]
 
         chat = rag_logic.Rag()
-        response = chat.rag_chat_gen(question)
+        response = chat.rag_chat_gen(question, EditorState.content)
 
         self.chats[self.current_chat][-1].answer += response
 

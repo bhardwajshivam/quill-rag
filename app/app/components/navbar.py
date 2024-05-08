@@ -1,3 +1,4 @@
+"""Module for navbar component"""
 import reflex as rx
 from app.state import State
 
@@ -59,7 +60,7 @@ def modal(trigger) -> rx.Component:
         rx.dialog.content(
             rx.hstack(
                 rx.input(
-                    placeholder="Type something...",
+                    placeholder="Ask me..",
                     on_blur=State.set_new_chat_name,
                     width=["15em", "20em", "30em", "30em", "30em", "30em"],
                 ),
@@ -78,6 +79,7 @@ def modal(trigger) -> rx.Component:
 
 
 def navbar():
+    """ Navbar for chatbot """
     return rx.box(
         rx.hstack(
             rx.hstack(
