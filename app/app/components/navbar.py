@@ -60,7 +60,7 @@ def modal(trigger) -> rx.Component:
         rx.dialog.content(
             rx.hstack(
                 rx.input(
-                    placeholder="Ask me..",
+                    placeholder="Give your chat a name",
                     on_blur=State.set_new_chat_name,
                     width=["15em", "20em", "30em", "30em", "30em", "30em"],
                 ),

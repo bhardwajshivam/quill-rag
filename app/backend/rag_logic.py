@@ -4,6 +4,7 @@ import ollama
 from langchain_community.embeddings.ollama import OllamaEmbeddings
 from langchain_community.vectorstores import Chroma
 
+
 class Rag():
     """ class defining the rag(retrieval augmented generation) """
 
@@ -39,7 +40,7 @@ class Rag():
 
 if __name__ == "__main__":
     chat = Rag()
-    #print(chat.rag_chat_gen(question="is Chat-GPT is a good NLG evaluation metric?"))
+    print(chat.rag_chat_gen(question="Name few LLMs", editor_context="This is a test "))
 
 
 # End-of-file (EOF)

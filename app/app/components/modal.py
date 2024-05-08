@@ -1,3 +1,4 @@
+""" Module for modal """
 import reflex as rx
 from app.state import State
 
@@ -24,7 +25,7 @@ def modal() -> rx.Component:
                 ),
                 rx.chakra.modal_body(
                     rx.chakra.input(
-                        placeholder="Type something...",
+                        placeholder="Please type in your query...",
                         on_blur=State.set_new_chat_name,
                         bg="#222",
                         border_color="#fff3",

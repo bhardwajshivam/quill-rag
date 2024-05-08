@@ -73,7 +73,7 @@ reflex run
 
 ## Dataset
 
-The dataset used in the Quill RAG system comprises references from the paper "Exploring the Potential of Large Language Models in Computational Argumentation." This comprehensive collection enriches the system's knowledge base, enabling informed responses to user inquiries.
+The dataset used in the Quill RAG system comprises references from the paper "Exploring the Potential of Large Language Models in Computational Argumentation." This comprehensive collection enriches the system's knowledge base, enabling informed responses to user inquiries. The vector database is created using 77 research papers present as references.
 
 ## Acknowledgements
 

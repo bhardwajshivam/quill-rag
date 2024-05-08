@@ -7,6 +7,13 @@ from app.editor_state import EditorState
 def index() -> rx.Component:
     """The main app."""
     return rx.container(
+                rx.section(
+                        rx.heading("QUILL RAG",weight='medium',size='9'),
+                        rx.text("Your own editor copilot", weight='medium', size='6'),
+                        padding_left="12px",
+                        padding_right="12px",
+                        background_color="#7033d4",
+                ),
                 rx.flex(
                     rx.editor(
                         set_contents=EditorState.content,
@@ -47,6 +54,13 @@ def index() -> rx.Component:
                         spacing="0",
                         width="50%"
                     ),
+                ),
+                rx.section(
+                        rx.heading("Contact:"),
+                        rx.text("shivam.bhardwaj@tufts.edu"),
+                        padding_left="12px",
+                        padding_right="12px",
+                        background_color="#7033d4",
                 )
             )
 
