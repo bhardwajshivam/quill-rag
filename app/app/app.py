@@ -9,10 +9,10 @@ def index() -> rx.Component:
     return rx.container(
                 rx.section(
                         rx.heading("QUILL RAG",weight='medium',size='9'),
-                        rx.text("Your own editor copilot", weight='medium', size='6'),
+                        rx.text(" ~ Your own editor copilot", weight='light', size='6'),
                         padding_left="12px",
                         padding_right="12px",
-                        background_color="#7033d4",
+                        background_color="#4e2ba6",
                 ),
                 rx.flex(
                     rx.editor(
@@ -60,7 +60,7 @@ def index() -> rx.Component:
                         rx.text("shivam.bhardwaj@tufts.edu"),
                         padding_left="12px",
                         padding_right="12px",
-                        background_color="#7033d4",
+                        background_color="#4e2ba6",
                 )
             )
 
