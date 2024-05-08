@@ -3,6 +3,8 @@
 ## Abstract
 This project introduces the Quill RAG system, an innovative editor application that allows users to write and ask questions simultaneously. The frontend of the application is built using Reflex, a Python wrapper for React. The backend incorporates RAG (Retrieval-Augmented Generation) technology, enhancing the user experience by providing intelligent responses. The vector database, created using Chroma, contains references from the paper "Exploring the Potential of Large Language Models in Computational Argumentation." The project aims to increase interaction while writing content with the help of a chatbot that answers questions related to the text. The RAG system pulls out relevant documents from the vector database using the written context as well as the question asked by the user and ollama helps generate a relevant response.
 
+![plot](https://raw.githubusercontent.com/bhardwajshivam/quill-rag/main/quill-rag.png)
+
 ## Contents
 1. Overview
 2. Modelling
