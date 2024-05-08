@@ -36,6 +36,9 @@ Ollama, in the context of the Quill RAG system, stands as a versatile tool for l
 Reflex.dev forms the frontend framework of the Quill RAG system. It offers a user-friendly environment for composing text and posing questions via chatbot, ensuring a smooth and intuitive experience.
 
 ## Getting Started
+
+* Note: This application requires sqlite3 >= 3.35.0 (Please visit https://docs.trychroma.com/troubleshooting#sqlite to learn how to upgrade)
+
 1. Clone the repository
 ```
 git clone git@github.com:bhardwajshivam/quill-rag.git
