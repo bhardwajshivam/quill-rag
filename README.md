@@ -1,7 +1,7 @@
 # Quill RAG : An editor with RAG based chat functionality.
 
 ## Abstract
-This project introduces the Quill RAG system, an innovative editor application that allows users to write and ask questions simultaneously. The frontend of the application is built using Reflex, a Python wrapper for React. The backend incorporates RAG (Retrieval-Augmented Generation) technology, enhancing the user experience by providing intelligent responses. The vector database, created using Chroma, contains references from the paper "Exploring the Potential of Large Language Models in Computational Argumentation."
+This project introduces the Quill RAG system, an innovative editor application that allows users to write and ask questions simultaneously. The frontend of the application is built using Reflex, a Python wrapper for React. The backend incorporates RAG (Retrieval-Augmented Generation) technology, enhancing the user experience by providing intelligent responses. The vector database, created using Chroma, contains references from the paper "Exploring the Potential of Large Language Models in Computational Argumentation." The project aims to increase interaction while writing content with the help of a chatbot that answers questions related to the text. The RAG system pulls out relevant documents from the vector database using the written context as well as the question asked by the user and ollama helps generate a relevant response.
 
 ## Contents
 1. Overview
@@ -28,7 +28,7 @@ The Quill RAG system revolutionizes the way users interact with text, enabling s
 
 
 ### Ollama
-Ollama, in the context of the Quill RAG system, stands as a versatile tool for leveraging local large language models (LLMs). By harnessing local LLMs, Ollama empowers the system to process and interpret user queries with heightened contextuality and relevance. Through seamless integration with local LLMs, Ollama facilitates the extraction of nuanced insights and generates responses that are tailored to the specific domain or dataset at hand. 
+Ollama, in the context of the Quill RAG system, stands as a versatile tool for leveraging local large language models (LLMs). By harnessing local LLMs, Ollama empowers the system to process and interpret user queries with heightened contextuality and relevance. Through seamless integration with local LLMs, Ollama facilitates the extraction of nuanced insights and generates responses that are tailored to the specific domain or dataset at hand. In this project, Ollama uses Mistral-7B as the LLM to generate response.
 
 ### Reflex.dev
 Reflex.dev forms the frontend framework of the Quill RAG system. It offers a user-friendly environment for composing text and posing questions via chatbot, ensuring a smooth and intuitive experience.
