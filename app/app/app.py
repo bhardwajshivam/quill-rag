@@ -41,7 +41,6 @@ def index() -> rx.Component:
                             ]
                         ),
                         on_change=EditorState.handle_change,
-                        on_copy=EditorState.on_copy,
                         width="50%",
                         height="100%"
                     ),
@@ -69,7 +68,7 @@ def index() -> rx.Component:
 # Add state and page to the app.
 app = rx.App(
     theme=rx.theme(
-        appearance="light",
+        appearance="dark",
         accent_color="violet",
     ),
 )

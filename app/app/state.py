@@ -114,3 +114,5 @@ class State(rx.State):
         self.chats[self.current_chat][-1].answer += response
 
         self.processing = False
+
+# End-of-file (EOF)

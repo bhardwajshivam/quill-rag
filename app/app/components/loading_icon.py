@@ -1,3 +1,4 @@
+"""Module for loading icon"""
 import reflex as rx
 
 
@@ -15,6 +16,7 @@ class LoadingIcon(rx.Component):
     height: rx.Var[str]
 
     def get_event_triggers(self) -> dict:
+        """function to handle events"""
         return {"on_change": lambda status: [status]}
 
 
