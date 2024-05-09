@@ -84,7 +84,7 @@ def navbar():
         rx.hstack(
             rx.hstack(
                 #rx.avatar(fallback="HRILab", variant="solid"),
-                rx.heading("HRILab - Lets Chat"),
+                rx.heading("HRILab - Lets Chat",size = "4"),
                 rx.desktop_only(
                     rx.badge(
                     State.current_chat,

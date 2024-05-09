@@ -22,9 +22,10 @@ class Rag():
         return retriever
 
 
-    def ollama_llm(self, question: str, context: str):
+    def ollama_llm(self, question: str, context: str, editor_content: str):
         """ function for generating response using ollama """
-        formatted_prompt = f"""Question: {question} \n\n Context: {context}"""
+        formatted_prompt = f"""Please answer the question keeping in mind the editor content 
+                            Question: {question} \n\n Context: {context} \n\n Editor content: {editor_content}"""
         response = ollama.chat(model = "mistral",
                                messages = [{'role': 'user', 'content': formatted_prompt}])
         return response['message']['content']
@@ -35,7 +36,7 @@ class Rag():
         retriever = self.load_vector_database()
         retrieved_docs = retriever.invoke(question+editor_context)
         formatted_context = self.format_docs(retrieved_docs)
-        return self.ollama_llm(question, formatted_context)
+        return self.ollama_llm(question, formatted_context, editor_context)
 
 
 if __name__ == "__main__":
