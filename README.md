@@ -44,9 +44,9 @@ Reflex.dev forms the frontend framework of the Quill RAG system. It offers a use
 git clone git@github.com:bhardwajshivam/quill-rag.git
 ```
 
-2. Create a virtual environment
+2. Create a virtual environment (python3.11)
 ```
-virtualenv -p python3 venv
+virtualenv -p python3 venv 
 ```
 
 3. Activate virtual env
@@ -59,12 +59,24 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-5. Move to app directory
+5. Install sqlite3 
+```
+pip install pysqlite3-binary
+```
+
+6. Add the following lines at the top in venv/lib/sit-packages/chromadb/__init__.py
+```
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+```
+
+6. Move to app directory
 ```
 cd app
 ```
 
-6. Run application using reflex
+7. Run application using reflex
 ```
 reflex run
 ```
