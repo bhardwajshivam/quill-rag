@@ -3,5 +3,4 @@ reflex
 chroma
 langchain
 chromadb
-sqlite3-binary
 pytest
