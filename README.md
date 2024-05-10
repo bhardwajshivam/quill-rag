@@ -71,12 +71,12 @@ import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 ```
 
-6. Move to app directory
+7. Move to app directory
 ```
 cd app
 ```
 
-7. Run application using reflex
+8. Run application using reflex
 ```
 reflex run
 ```
