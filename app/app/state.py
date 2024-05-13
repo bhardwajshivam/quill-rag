@@ -1,8 +1,10 @@
 """ Module for chat state"""
 
 import reflex as rx
+import asyncio
 from backend import rag_logic
 from app.editor_state import EditorState
+
 
 class QA(rx.Base):
     """A question and answer pair."""
@@ -110,8 +112,12 @@ class State(rx.State):
 
         chat = rag_logic.Rag()
         response = chat.rag_chat_gen(question, EditorState.content)
+        for i in range(len(response)):
+            await asyncio.sleep(0.05)
 
-        self.chats[self.current_chat][-1].answer += response
+            self.chats[self.current_chat][-1].answer += response[i]
+            yield
+
 
         self.processing = False
 
