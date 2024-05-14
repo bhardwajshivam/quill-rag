@@ -25,7 +25,7 @@ embeddings = OllamaEmbeddings(model="mistral")
 
 # initializing vector_store with the first pdf file
 vector_store = Chroma.from_documents(documents = splits, embedding = embeddings,
-                                     persist_directory="app/data/vector-store")
+                                     persist_directory="app/data/test-vector-store")
 vector_store.persist()
 
 # looping through the other pdfs and adding embeddings to our vector store
@@ -33,7 +33,7 @@ for i in range(1, len(list_data)):
     try:
         cur_pdf = list_data[i]
         loader = PyPDFLoader(cur_pdf)
-        print(i+1,"/76")
+        print(i+1,"/10")
         new_docs = loader.load_and_split(text_splitter)
         vector_store.add_documents(new_docs)
         vector_store.persist()
