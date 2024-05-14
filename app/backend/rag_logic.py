@@ -16,7 +16,7 @@ class Rag():
     def load_vector_database(self):
         """ function for calling retriever """
         embeddings = OllamaEmbeddings(model = "mistral")
-        vector_store = Chroma(persist_directory = "app/data/vector-store",
+        vector_store = Chroma(persist_directory = "app/data/test-vector-store",
                               embedding_function = embeddings)
         retriever = vector_store.as_retriever()
         return retriever
@@ -25,23 +25,23 @@ class Rag():
     def ollama_llm(self, question: str, context: str):
         """ function for generating response using ollama """
         formatted_prompt = f"""You are a chatbot for helping users write content. Answer using
-                            the folowing information. Question: {question} \n\n Context: {context}"""
+                            the folowing information. Question: {question}\n\nContext: {context}"""
         response = ollama.chat(model = "mistral",
                                messages = [{'role': 'user', 'content': formatted_prompt}])
         return response['message']['content']
 
 
-    def rag_chat_gen(self, question: str, editor_context: str):
+    def rag_chat_gen(self, question: str, editor_content: str):
         """ function for chat generation using rag """
         retriever = self.load_vector_database()
-        retrieved_docs = retriever.invoke(question+editor_context)
+        retrieved_docs = retriever.invoke(question+editor_content)
         formatted_context = self.format_docs(retrieved_docs)
         return self.ollama_llm(question, formatted_context)
 
 
 if __name__ == "__main__":
     chat = Rag()
-    print(chat.rag_chat_gen(question="Name few LLMs", editor_context="This is a test "))
+    print(chat.rag_chat_gen(question="Name few LLMs", editor_content="This is a test "))
 
 
 # End-of-file (EOF)
