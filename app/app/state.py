@@ -1,7 +1,7 @@
 """ Module for chat state"""
 
-import reflex as rx
 import asyncio
+import reflex as rx
 from backend import rag_logic
 from app.editor_state import EditorState
 
@@ -76,7 +76,6 @@ class State(rx.State):
             return
 
         model = self.ollama_process_question
-
         async for value in model(question):
             yield value
 
@@ -109,15 +108,17 @@ class State(rx.State):
 
         # Remove the last mock answer.
         messages = messages[:-1]
-
+        for i in range(len(question)):
+            self.chats[self.current_chat][-1].answer += ''
+            yield
+        
         chat = rag_logic.Rag()
         response = chat.rag_chat_gen(question, EditorState.content)
         for i in range(len(response)):
             await asyncio.sleep(0.05)
 
             self.chats[self.current_chat][-1].answer += response[i]
-            yield
-
+            yield 
 
         self.processing = False
 

@@ -33,6 +33,7 @@ class Rag():
 
     def rag_chat_gen(self, question: str, editor_content: str):
         """ function for chat generation using rag """
+        print(editor_content)
         retriever = self.load_vector_database()
         retrieved_docs = retriever.invoke(question+editor_content)
         formatted_context = self.format_docs(retrieved_docs)
