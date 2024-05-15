@@ -25,7 +25,8 @@ def test_ollama_llm() -> None:
     test_fn = Rag()
     question = "What is LLM?"
     context = "LLM stands for Large Language Model"
-    test_res = test_fn.ollama_llm(question, context)
+    editor_content = "Ollama"
+    test_res = test_fn.ollama_llm(question, context, editor_content)
     test_flag = False
     if test_res is not None:
         test_flag = True

@@ -2,7 +2,7 @@
 
 import reflex as rx
 from app.components import chat, navbar
-from app.editor_state import EditorState
+from app.state import State
 
 
 def index() -> rx.Component:
@@ -18,7 +18,7 @@ def index() -> rx.Component:
                 ),
                 rx.flex(
                     rx.editor(
-                        set_contents=EditorState.content,
+                        set_contents=State.content,
                         set_options=rx.EditorOptions(
                             button_list=[
                                 ["font", "fontSize", "formatBlock"],
@@ -40,7 +40,7 @@ def index() -> rx.Component:
                                 ["preview", "print"],
                             ]
                         ),
-                        on_change=EditorState.handle_change,
+                        on_change=State.handle_change,
                         width="50%",
                         height="100%"
                     ),
@@ -58,7 +58,7 @@ def index() -> rx.Component:
                 ),
                 rx.section(
                         rx.heading("HRILab @Tufts University"),
-                        rx.text(EditorState.test),#("Contact: shivam.bhardwaj@tufts.edu"),
+                        rx.text("Contact: shivam.bhardwaj@tufts.edu"),
                         padding_left="12px",
                         padding_right="12px",
                         background_color="#4e2ba6",

@@ -20,6 +20,10 @@ DEFAULT_CHATS = {
 
 class State(rx.State):
     """The app state."""
+    content: str = "<p>Editor content</p>"
+    def handle_change(self, content: str):
+        """Handle the editor value change."""
+        self.content = content
 
     # A dict from the chat name to the list of questions and answers.
     chats: dict[str, list[QA]] = DEFAULT_CHATS
@@ -113,7 +117,7 @@ class State(rx.State):
             yield
         
         chat = rag_logic.Rag()
-        response = chat.rag_chat_gen(question, EditorState.content)
+        response = chat.rag_chat_gen(question, self.content)
         for i in range(len(response)):
             await asyncio.sleep(0.05)
 
