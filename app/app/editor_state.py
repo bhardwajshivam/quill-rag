@@ -1,12 +1,13 @@
 """ Module for editor state """
 
+#not using this module, merged editor state to main app state
+
 import reflex as rx
 
 class EditorState(rx.State):
     """ handles editor state (text content)"""
     content: str = "<p>Editor content</p>"
     test: str = "Test"
-    form_data: dict = {0:''}
 
     def handle_change(self, content: str):
         """Handle the editor value change."""

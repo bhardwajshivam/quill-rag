@@ -3,7 +3,7 @@
 import asyncio
 import reflex as rx
 from backend import rag_logic
-from app.editor_state import EditorState
+#from app.editor_state import EditorState
 
 
 class QA(rx.Base):
@@ -20,7 +20,7 @@ DEFAULT_CHATS = {
 
 class State(rx.State):
     """The app state."""
-    content: str = "<p>Editor content</p>"
+    content: str = ""
     def handle_change(self, content: str):
         """Handle the editor value change."""
         self.content = content
