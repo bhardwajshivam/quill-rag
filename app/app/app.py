@@ -57,8 +57,8 @@ def index() -> rx.Component:
                     ),
                 ),
                 rx.section(
-                        rx.heading("HRILab @Tufts University"),
-                        rx.text("Contact: shivam.bhardwaj@tufts.edu"),
+                        rx.heading("QuillRAG"),
+                        rx.text("Contact: shivamb.work@gmail.com"),
                         padding_left="12px",
                         padding_right="12px",
                         background_color="#4e2ba6",
